@@ -51,14 +51,17 @@
                                         <f:facet name="header" >
                                             <h:outputText value="Role"/>
                                         </f:facet>    
-                                        <h:outputText value="#{user.role}" /> 
-
+                                        <h:outputText rendered="#{user.role == 1}" value="Administrator"/>
+                                        <h:outputText rendered="#{user.role == 2}" value="Fee Account"/>
+                                        <h:outputText rendered="#{user.role == 3}" value="Premium Account"/>
+                                        <h:outputText rendered="#{user.role == 4}" value="Customer"/>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header" >
                                             <h:outputText value="Status"/>
                                         </f:facet>    
-                                        <h:outputText value="#{user.status}" />
+                                        <h:outputText rendered="#{user.status == 1}" value="Activated"/>
+                                        <h:outputText rendered="#{user.status == 0}" value="De-Activated"/>  
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
