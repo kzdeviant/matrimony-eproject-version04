@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="contenttemp">
+                <section id="content" class="wrapper">
+                    <div class="line-hor"></div>
+                    <div class="line-ver">
+                        <div class="wrapper indent line-ver1">
+                            <div style="width:268px; margin-right:42px;float: left;">
+                                <h2>Postal Address</h2>
+                                <img src="images/5page-img.jpg" class="img-indent" />
+                                    <address>
+                                        8901 Marmora Road,<br />
+                                        Glasgow, D04 89GR.<br />
+                                        <br />
+                                        <span>Freephone:</span> +1 800 559 6580<br />
+                                        <span>Telephone:</span> +1 959 603 6035<br />
+                                        <span>FAX:</span> +1 504 889 9898<br />
+                                        E-mail: <a href="#">mail@demolink.org</a>
+                                    </address>
+                            </div>
+                            <div style="width:268px; margin-right:42px;float: left;">
+                                <h2>Our Locations</h2>
+                                <dl>
+                                    <dt>Argentina</dt>
+                                    <dd>Lorem ipsum dolor consectetr adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. </dd>
+                                    <dt>Denmark </dt>
+                                    <dd>Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies phare magna. Donec accumsan malesuada orci. </dd>
+                                    <dt>Finland </dt>
+                                    <dd>Quisque nulla. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel.</dd>
+                                </dl>
+                            </div>
+                            <div style="width:270px;float: left;">
+                                <h2>Contact Form</h2>
+                                <form action="" id="contacts-form">
+                                    <fieldset>
+                                        <div class="rowElem">
+                                            <label>Name:</label>
+                                            <input type="text" class="text" />
+                                        </div>
+                                        <div class="rowElem">
+                                            <label>E-mail:</label>
+                                            <input type="email" class="text" />
+                                        </div>
+                                        <div>
+                                            <label>Message:</label>
+                                            <textarea cols="1" rows="1"></textarea>
+                                        </div>
+                                        <div class="button"><a href="#" onClick="document.getElementById('contacts-form').submit()">send</a><a href="#" onClick="document.getElementById('contacts-form').reset()">clear</a></div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

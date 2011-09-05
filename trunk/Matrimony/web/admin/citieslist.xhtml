@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Matrimony</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="contenttemp">
+                <div id="masthead">
+                    <div class="content_pad">
+                        <h1 class="">Cities List</h1>
+                        <div id="bread_crumbs">
+                            <a href="../dashboard.html">Home</a> / 
+                            <a href="" class="current_page">Cities List</a>				
+                        </div> <!-- #bread_crumbs -->
+                    </div> <!-- .content_pad -->
+                </div> <!-- #masthead -->	
+                <div id="content" class="xgrid">
+                    <div class="x12">
+                        <f:view> 
+                            <h:form prependId="false" id="formID" >
+
+                                <h:dataTable value="#{citiesController.allCountries}" var="city" styleClass="data display datatable" id="tblCities">
+                                    <h:column>
+                                        <f:facet name="header" >
+                                            <h:outputText value="CityID"/>
+                                        </f:facet>    
+                                        <h:outputText value="#{country.countryID}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header" >
+                                            <h:outputText value="City Name"/>
+                                        </f:facet>    
+                                        <h:outputText value="#{city.cityName}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header" >
+                                            <h:outputText value="Country"/>
+                                        </f:facet>    
+                                        <h:outputText value="#{city.countryID.countryName}" />
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header" >
+                                            <h:outputText value="Status"/>
+                                        </f:facet>    
+                                        <h:outputText value="#{city.status}" />
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Action"/>
+                                        </f:facet>    
+                                        <p:commandLink title="Edit Country" action="countryedit?faces-redirect=true">
+                                            <h:graphicImage url="images/icon_edit.png" alt="Edit" />
+                                            <f:setPropertyActionListener value="#{country}" target="#{countriesController.selectedCountry}" />
+                                        </p:commandLink>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>
+                        </f:view>
+                    </div> 
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

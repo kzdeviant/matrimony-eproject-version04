@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="contenttemp">
+                <section id="content" class="wrapper">
+                    <div class="line-hor"></div>
+                    <div class="line-ver">
+                        <div class="wrapper indent line-ver1">
+                            <div style="width:268px; margin-right:42px;float: left;">
+                                <h2>New  Members</h2>
+                                <ul class="members">
+                                    <li><a href="#"><img src="images/1page-img1.jpg"/>Bradley Grosh</a></li>
+                                    <li><a href="#"><img src="images/1page-img2.jpg"/>Jessica 1987</a></li>
+                                    <li class="alt"><a href="#"><img src="images/1page-img3.jpg"/>Patrick Pool</a></li>
+                                    <li><a href="#"><img src="images/1page-img4.jpg"/>Letizia Linds</a></li>
+                                    <li><a href="#"><img src="images/1page-img5.jpg"/>Carmen</a></li>
+                                </ul>
+                            </div>
+                            <div style="width:268px; margin-right:42px;float: left;">
+                                <h2>Site  rules</h2>
+                                <h5>Lorem ipsum dolor sit amet consectetuer adipiscing elit. Praesent vestibu molestie lacus. Aenean nonummy </h5>
+                                <p>Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Nulla duat malesuada odio. Morbi nunc odio gravida atcursus neus a lornas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan mlesuada orciit amet eros. Lorem ipsum dolor sit amet consectetuer adipiscing eliauris fermentum dictum md eet aliquam leo. </p>
+                                <a href="#" class="link">Read More</a> </div>
+                            <div style="width:270px;float: left;">
+                                <h2>Quick  Search</h2>
+                                <form action="#" id="quick-search-form">
+                                    <fieldset>
+                                        <div class="rowElem">
+                                            <label class="style1">I am a:</label>
+                                            <select>
+                                                <option>Woman</option>
+                                                <option>Man</option>
+                                            </select>
+                                            <select class="fright">
+                                                <option>Man</option>
+                                                <option>Woman</option>
+                                            </select>
+                                            <label class="style2">Seeking:</label>
+                                        </div>
+                                        <div class="rowElem">
+                                            <label>Looking for:</label>
+                                            <select class="style1">
+                                                <option>a date</option>
+                                                <option>a month</option>
+                                                <option>a year</option>
+                                            </select>
+                                        </div>
+                                        <div class="rowElem">
+                                            <label>I was born:</label>
+                                            <select class="style2">
+                                                <option>Month</option>
+                                            </select>
+                                            <select class="style3">
+                                                <option>Day</option>
+                                            </select>
+                                            <select class="style4">
+                                                <option>Year</option>
+                                            </select>
+                                        </div>
+                                        <div class="rowElem">
+                                            <label>By ID profile</label>
+                                            <input type="text" class="text"/>
+                                        </div>
+                                        <div class="rowElem">
+                                            <label>With photo</label>
+                                            <input type="checkbox" class="checkbox"/>
+                                        </div>
+                                        <div class="button"><a href="#" onClick="document.getElementById('quick-search-form').submit()">start search</a></div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
