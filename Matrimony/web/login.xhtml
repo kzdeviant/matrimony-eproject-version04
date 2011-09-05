@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="contenttemp">
+                <section id="content" class="wrapper">
+                    <div class="line-hor"></div>
+                    <div class="wrapper indent line-ver2">
+                        <article style="width:400px; margin-right:42px;float: left;">
+                            <h2>Login Member</h2>
+                            <div style="width: 80%">
+                                <form action="" id="contacts-form">
+                                    <fieldset>
+                                        <div class="rowElem">
+                                            <label>User Name:</label>
+                                            <input type="text" class="text" />
+                                        </div>
+                                        <div class="rowElem">
+                                            <label>Password:</label>
+                                            <input type="email" class="text" />
+                                        </div>
+                                        <div class="button">
+                                            <a href="#" onClick="document.getElementById('contacts-form').reset()">Reset</a>
+                                            <a href="#" onClick="document.getElementById('contacts-form').submit()">Login</a>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <br />
+                                <a href="#" class="link" style="float: right">Forgot your password?</a>
+                            </div>
+                        </article>
+                        <article style="width:400px;float: left;">
+                            <h2>Role Dating</h2>
+                            <p>Vestibulum libero nisl porta vel sceleris eget malesuada at neque. Vivamus eget nibh etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis.</p>
+                            <p>Suspendisse sollicitudin velit sed. Ut pharetra augue nec augue. Nam elit magna hendrerit sit amet, tincidunt ac, viverra sed, nulla.</p>
+                            <p>Donec porta diam eu massa. Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum.</p>
+                            <a href="#" class="link">Read More</a>
+                        </article>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

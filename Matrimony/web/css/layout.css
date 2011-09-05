@@ -1,0 +1,29 @@
+/*======= index.html =======*/
+#page1 #content .col-1 {width:268px; margin-right:42px;}
+#page1 #content .col-2 { width:268px; margin-right:42px;}
+#page1 #content .col-3 { width:270px;}
+
+/*======= index-1.html =======*/
+#page2 #content .col-1 {width:268px; margin-right:42px;}
+#page2 #content .col-2 { width:268px; margin-right:42px;}
+#page2 #content .col-3 { width:270px;}
+
+/*======= index-2.html =======*/
+#page3 #content .col-1 {width:266px; margin-right:44px;}
+#page3 #content .col-2 { width:580px;}
+
+/*======= index-3.html =======*/
+#page4 #content .col-1 {width:578px; margin-right:42px;}
+#page4 #content .col-1 .col-1 { width:255px; margin-right:58px;}
+#page4 #content .col-1 .col-2 { width:247px;}
+#page4 #content .col-2 { width:270px;}
+
+/*======= index-4.html =======*/
+#page5 #content .col-1 {width:268px; margin-right:42px;}
+#page5 #content .col-2 { width:268px; margin-right:42px;}
+#page5 #content .col-3 { width:270px;}
+
+
+/*=========================*/
+
+
