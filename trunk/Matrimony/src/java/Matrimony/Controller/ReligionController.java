@@ -23,24 +23,24 @@ import org.w3c.dom.NodeList;
  */
 @ManagedBean
 @RequestScoped
-public class CountriesController {
+public class ReligionController {
 
-    /** Creates a new instance of CountriesController */
-    public CountriesController() {
+    /** Creates a new instance of ReligionController */
+    public ReligionController() {
     }
-
-    public List<String> getListCountries() {
+    
+    public List<String> getListReligion() {
         List<String> list = new ArrayList<String>();
         try {
             FacesContext faces = FacesContext.getCurrentInstance();
             ExternalContext ec = faces.getExternalContext();
-            String src = ec.getRealPath("/xml/countries.xml");
+            String src = ec.getRealPath("/xml/religion.xml");
             File fXmlFile = new File(src);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
             Element docEle = doc.getDocumentElement();
-            NodeList nList = docEle.getElementsByTagName("country");
+            NodeList nList = docEle.getElementsByTagName("religion");
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Element eElement = (Element) nList.item(temp);
                 list.add(eElement.getTextContent());
