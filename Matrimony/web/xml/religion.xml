@@ -1,0 +1,18 @@
+<religion>
+  <name>Hindu</name>
+  <name>Muslim - Shia</name>
+  <name>Muslim - Sunni</name>
+  <name>Muslim - Others</name>
+  <name>Christian - Catholic</name>
+  <name>Christian - Orthodox</name>
+  <name>Christian - Protestant</name>
+  <name>Christian - Others</name>
+  <name>Sikh</name>
+  <name>Jain - Digambar</name>
+  <name>Jain - Shwetambar</name>
+  <name>Jain - Others</name>
+  <name>Parsi</name>
+  <name>Buddhist</name>
+  <name>Inter-Religion</name>
+  <name>No Religious Belief</name>
+</religion>
