@@ -30,8 +30,8 @@ public class UsersFacade {
 
     //Check authentication
     public boolean UserLogin(Users u) {
-        Query q = em.createQuery("SELECT a FROM Users a WHERE a.userName = :userName and a.password = :password");
-        q.setParameter("userName", u.getUsername());
+        Query q = em.createQuery("SELECT a FROM Users a WHERE a.username = :username and a.password = :password");
+        q.setParameter("username", u.getUsername());
         q.setParameter("password", u.getPassword());
         List<Users> list = q.getResultList();
         if (list.isEmpty()) {
