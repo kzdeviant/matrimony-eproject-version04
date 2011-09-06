@@ -8,9 +8,9 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -29,11 +29,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cities.findAll", query = "SELECT c FROM Cities c"),
     @NamedQuery(name = "Cities.findByCityID", query = "SELECT c FROM Cities c WHERE c.cityID = :cityID"),
     @NamedQuery(name = "Cities.findByCityName", query = "SELECT c FROM Cities c WHERE c.cityName = :cityName"),
+    @NamedQuery(name = "Cities.findByCountryName", query = "SELECT c FROM Cities c WHERE c.countryName = :countryName"),
     @NamedQuery(name = "Cities.findByStatus", query = "SELECT c FROM Cities c WHERE c.status = :status")})
 public class Cities implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @NotNull
     @Column(name = "CityID", nullable = false)
     private Integer cityID;
@@ -42,11 +44,11 @@ public class Cities implements Serializable {
     @Size(min = 1, max = 250)
     @Column(name = "CityName", nullable = false, length = 250)
     private String cityName;
+    @Size(max = 50)
+    @Column(name = "CountryName", length = 50)
+    private String countryName;
     @Column(name = "Status")
     private Integer status;
-    @JoinColumn(name = "CountryID", referencedColumnName = "CountryID")
-    @ManyToOne
-    private Countries countryID;
 
     public Cities() {
     }
@@ -55,10 +57,11 @@ public class Cities implements Serializable {
         this.cityID = cityID;
     }
 
-    public Cities(Integer cityID, String cityName, Countries country) {
+    public Cities(Integer cityID, String cityName, String countryName, Integer status) {
         this.cityID = cityID;
         this.cityName = cityName;
-        this.countryID = country;
+        this.countryName = countryName;
+        this.status = status;
     }
 
     public Integer getCityID() {
@@ -77,20 +80,20 @@ public class Cities implements Serializable {
         this.cityName = cityName;
     }
 
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
     public Integer getStatus() {
         return status;
     }
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public Countries getCountryID() {
-        return countryID;
-    }
-
-    public void setCountryID(Countries countryID) {
-        this.countryID = countryID;
     }
 
     @Override

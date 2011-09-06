@@ -27,20 +27,11 @@ CREATE TABLE Users (
 --1. Enable
 --2. Disabled
 go
-/******************************** Global Country ****************************************/
-CREATE TABLE Countries(
-	CountryID			int primary key identity, 
-	CountryName			nvarchar(250) NOT NULL,
-	DefaultLanguage		nvarchar(250) NOT NULL,
-	Code                nvarchar(50) NOT NULL,
-	Status				int default 1, 
-)
-go
 /******************************** Cites ****************************************/
 CREATE TABLE Cities(
 	CityID				int primary key identity, 
 	CityName			nvarchar(250) NOT NULL,
-	CountryID			int references Countries(CountryID),
+	CountryName			varchar(50),
 	Status				int default 1, 
 )
 go
@@ -221,13 +212,8 @@ INSERT INTO NewThread(UserID,Title,MessageThread,[Status]) VALUES(1,'What your n
 INSERT INTO Reply(UserID,NewThreadID,Title,MessageReply) VALUES(2,1,'Title','What your name ?')
 INSERT INTO Reply(UserID,NewThreadID,Title,MessageReply) VALUES(3,1,'Title','What your name ?')
 go
-/********************************Insert to Countries******************************************/
-INSERT INTO Countries (CountryName, DefaultLanguage, Code) VALUES('vietnam','Vietnamese','084')
-INSERT INTO Countries (CountryName, DefaultLanguage, Code) VALUES('India','Unknown','084')
-INSERT INTO Countries (CountryName, DefaultLanguage, Code) VALUES('United Kingdom','Unknown','084')
-go
 /********************************Insert to Cities******************************************/
-INSERT INTO Cities (CityName, CountryID) VALUES('Ha Noi',1)
-INSERT INTO Cities (CityName, CountryID) VALUES('Hai Phong',1)
-INSERT INTO Cities (CityName, CountryID) VALUES('Hue',1)
-INSERT INTO Cities (CityName, CountryID) VALUES('Ho Chi Minh City',1)
+INSERT INTO Cities (CityName, CountryName) VALUES('Ha Noi','Viet Nam')
+INSERT INTO Cities (CityName, CountryName) VALUES('Hai Phong','Viet Nam')
+INSERT INTO Cities (CityName, CountryName) VALUES('Hue','Viet Nam')
+INSERT INTO Cities (CityName, CountryName) VALUES('Ho Chi Minh City','Viet Nam')
