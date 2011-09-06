@@ -39,8 +39,8 @@
                                 <h:inputText value="#{citiesController.selectedCity.cityName}" id="txtCityName" size="50" styleClass="validate[required] text-input"/>
                             </div>
                             <div class="field">
-                                <h:outputLabel  value="Country Name:" />
-                                <h:selectOneMenu id="ddlCountryName" styleClass="validate[required]" value="#{citiesController.selectedCity.status}" >
+                                <h:outputLabel  value="Status:" />
+                                <h:selectOneMenu id="ddlStatus" styleClass="validate[required]" value="#{citiesController.selectedCity.status}" >
                                     <f:selectItem itemValue="" itemLabel="--Select--" />
                                     <f:selectItem itemLabel="Enabled" itemValue="1" />
                                     <f:selectItem itemLabel="Disable" itemValue="0" />
@@ -48,8 +48,8 @@
                             </div>
                             <br />
                             <div class="buttonrow">
-                                <h:commandButton style="width: 90px;" action="#{citiesController.cityUpdate}" value="Update" styleClass="btn btn-black" />&nbsp;
-                                <h:commandButton style="width: 90px;" value="Cancel" styleClass="btn btn-black" />
+                                <h:commandButton id="btnUpdate" style="width: 90px;" action="#{citiesController.cityUpdate}" value="Update" styleClass="btn btn-black" />&nbsp;
+                                <h:commandButton id="btnCancel" style="width: 90px;" value="Cancel" styleClass="btn btn-black" />
                             </div>
                         </h:form>
                     </div> <!-- .x12 -->
