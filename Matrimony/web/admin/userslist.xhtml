@@ -25,7 +25,6 @@
                     <div class="x12">
                         <f:view> 
                             <h:form prependId="false" id="formID" >
-
                                 <h:dataTable value="#{usersController.allUsers}" var="user" styleClass="data display datatable" id="tblUsers">
                                     <h:column>
                                         <f:facet name="header" >
@@ -60,8 +59,8 @@
                                         <f:facet name="header" >
                                             <h:outputText value="Status"/>
                                         </f:facet>    
-                                        <h:outputText rendered="#{user.status == 1}" value="Activated"/>
-                                        <h:outputText rendered="#{user.status == 0}" value="De-Activated"/>  
+                                        <h:outputText rendered="#{user.status == 1}" value="Enable"/>
+                                        <h:outputText rendered="#{user.status == 0}" style="color: red;" value="Disabled"/>  
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">

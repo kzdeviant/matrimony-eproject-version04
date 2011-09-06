@@ -202,10 +202,10 @@ CREATE TABLE Reply(
 )
 go
 /********************************Insert to Users******************************************/
-INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'tuyendn','123456','dangngoctuyen@gmail.com',1)
-INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'cuongnh','123456','nguyenhungcuongbn@gmail.com',1)
-INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'admin','123456','abcxyz@gmail.com',1)
-INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'admin123','123456','dangngoctuyen@gmail.com',1)
+INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'tuyendn','e10adc3949ba59abbe56e057f20f883e','dangngoctuyen@gmail.com',1)
+INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'cuongnh','e10adc3949ba59abbe56e057f20f883e','nguyenhungcuongbn@gmail.com',1)
+INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'admin','e10adc3949ba59abbe56e057f20f883e','abcxyz@gmail.com',1)
+INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'admin123','e10adc3949ba59abbe56e057f20f883e','dangngoctuyen@gmail.com',1)
 go
 /********************************Insert to thread******************************************/
 INSERT INTO NewThread(UserID,Title,MessageThread,[Status]) VALUES(1,'What your name ?','What your name ?',1)

@@ -49,13 +49,14 @@
                                         <f:facet name="header" >
                                             <h:outputText value="Status"/>
                                         </f:facet>    
-                                        <h:outputText value="#{city.status}" />
+                                        <h:outputText rendered="#{city.status == 1}" value="Enable"/>
+                                        <h:outputText style="color: red;" rendered="#{city.status == 0}" value="Disabled"/>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="Action"/>
                                         </f:facet>    
-                                        <p:commandLink title="Edit City" action="cityedit?faces-redirect=true">
+                                        <p:commandLink title="Edit City" action="cityedit">
                                             <h:graphicImage url="images/icon_edit.png" alt="Edit" />
                                             <f:setPropertyActionListener value="#{city}" target="#{citiesController.selectedCity}" />
                                         </p:commandLink>

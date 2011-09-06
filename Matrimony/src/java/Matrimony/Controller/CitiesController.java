@@ -66,7 +66,7 @@ public class CitiesController {
         Cities city;
         try {
             city = new Cities(selectedCity.getCityID(), selectedCity.getCityName(), selectedCity.getCountryName(), selectedCity.getStatus());
-            int result = citiesFacade.CityCreate(city);
+            int result = citiesFacade.CityUpdate(city);
             if (result > 0) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Success Message", "Create city successful!!!"));
             } else {
