@@ -4,13 +4,18 @@
  */
 package Matrimony.Controller;
 
-import Matrimony.Entities.Countries;
-import Matrimony.Facades.CountriesFacade;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 /**
  *
@@ -20,83 +25,30 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class CountriesController {
 
-    private String countryName;
-    private String defaultLanguage;
-    private String code;
-    private int Status;
-    private Countries selectedCountry;
-    private CountriesFacade countriesFacade;
-
     /** Creates a new instance of CountriesController */
     public CountriesController() {
-        countriesFacade = new CountriesFacade();
     }
 
-    public List<Countries> getAllCountries() {
-        if (countriesFacade == null) {
-            countriesFacade = new CountriesFacade();
-        }
-        List<Countries> list = countriesFacade.getAllCountries();
-        return list;
-    }
-
-    public void countryCreate() {
-        if (countriesFacade == null) {
-            countriesFacade = new CountriesFacade();
-        }
-        Countries country;
+    public List<String> getListCountries() {
+        List<String> list = new ArrayList<String>();
         try {
-            country = new Countries(-1, countryName, defaultLanguage, code);
-            int result = countriesFacade.CountryCreate(country);
-            if (result > 0) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Success Message", "Create country successful!!!"));
-            } else {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error Message", "Can not create country. Please try again later"));
+            FacesContext faces = FacesContext.getCurrentInstance();
+            ExternalContext ec = faces.getExternalContext();
+            String src = ec.getRealPath("/xml/countries.xml");
+            File fXmlFile = new File(src);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(fXmlFile);
+            Element docEle = doc.getDocumentElement();
+            NodeList nList = docEle.getElementsByTagName("country");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Element eElement = (Element) nList.item(temp);
+                list.add(eElement.getTextContent());
             }
         } catch (Exception ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error Message", ex.getMessage()));
-        } finally {
-            country = null;
+            return null;
         }
-    }
+        return list;
 
-    public int getStatus() {
-        return Status;
-    }
-
-    public void setStatus(int Status) {
-        this.Status = Status;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    public String getDefaultLanguage() {
-        return defaultLanguage;
-    }
-
-    public void setDefaultLanguage(String defaultLanguage) {
-        this.defaultLanguage = defaultLanguage;
-    }
-
-    public Countries getSelectedCountry() {
-        return selectedCountry;
-    }
-
-    public void setSelectedCountry(Countries selectedCountry) {
-        this.selectedCountry = selectedCountry;
     }
 }

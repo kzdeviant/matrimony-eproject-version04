@@ -13,10 +13,10 @@
             <ui:define name="contenttemp">
                 <div id="masthead">
                     <div class="content_pad">
-                        <h1 class="">Create City</h1>
+                        <h1 class="">Edit City</h1>
                         <div id="bread_crumbs">
                             <a href="../dashboard.html">Home</a> / 
-                            <a href="" class="current_page">Create City</a>				
+                            <a href="" class="current_page">Edit City</a>				
                         </div> <!-- #bread_crumbs -->
                     </div> <!-- .content_pad -->
                 </div> <!-- #masthead -->	
@@ -30,18 +30,25 @@
                             
                             <div class="field">
                                 <h:outputLabel  value="Country Name:" />
-                                <h:selectOneMenu id="ddlCountryName" value="#{citiesController.code}" >
+                                <h:selectOneMenu id="ddlCountryName" value="#{citiesController.selectedCity.countryName}" >
                                     <f:selectItems value="#{countriesController.listCountries}"/>
                                  </h:selectOneMenu>
                             </div>
                             <div class="field">
                                 <h:outputLabel  value="City Name:" />
-                                <h:inputText value="#{citiesController.cityName}" id="txtCityName" size="50" styleClass="validate[required] text-input"/>
+                                <h:inputText value="#{citiesController.selectedCity.cityName}" id="txtCityName" size="50" styleClass="validate[required] text-input"/>
                             </div>
-                     
+                            <div class="field">
+                                <h:outputLabel  value="Country Name:" />
+                                <h:selectOneMenu id="ddlCountryName" styleClass="validate[required]" value="#{citiesController.selectedCity.status}" >
+                                    <f:selectItem itemValue="" itemLabel="--Select--" />
+                                    <f:selectItem itemLabel="Enabled" itemValue="1" />
+                                    <f:selectItem itemLabel="Disable" itemValue="0" />
+                                 </h:selectOneMenu>
+                            </div>
                             <br />
                             <div class="buttonrow">
-                                <h:commandButton style="width: 90px;" action="#{citiesController.cityCreate}" value="Create" styleClass="btn btn-black" />&nbsp;
+                                <h:commandButton style="width: 90px;" action="#{citiesController.cityCreate}" value="Update" styleClass="btn btn-black" />&nbsp;
                                 <h:commandButton style="width: 90px;" value="Cancel" styleClass="btn btn-black" />
                             </div>
                         </h:form>

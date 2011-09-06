@@ -31,7 +31,7 @@
                                         <f:facet name="header" >
                                             <h:outputText value="CityID"/>
                                         </f:facet>    
-                                        <h:outputText value="#{country.countryID}"/>
+                                        <h:outputText value="#{city.cityID}"/>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header" >
@@ -43,7 +43,7 @@
                                         <f:facet name="header" >
                                             <h:outputText value="Country"/>
                                         </f:facet>    
-                                        <h:outputText value="#{city.countryID.countryName}" />
+                                        <h:outputText value="#{city.countryName}" />
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header" >
@@ -55,9 +55,9 @@
                                         <f:facet name="header">
                                             <h:outputText value="Action"/>
                                         </f:facet>    
-                                        <p:commandLink title="Edit Country" action="countryedit?faces-redirect=true">
+                                        <p:commandLink title="Edit City" action="cityedit?faces-redirect=true">
                                             <h:graphicImage url="images/icon_edit.png" alt="Edit" />
-                                            <f:setPropertyActionListener value="#{country}" target="#{countriesController.selectedCountry}" />
+                                            <f:setPropertyActionListener value="#{city}" target="#{citiesController.selectedCity}" />
                                         </p:commandLink>
                                     </h:column>
                                 </h:dataTable>

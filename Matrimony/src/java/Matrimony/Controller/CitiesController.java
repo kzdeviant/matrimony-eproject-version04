@@ -5,7 +5,6 @@
 package Matrimony.Controller;
 
 import Matrimony.Entities.Cities;
-import Matrimony.Entities.Countries;
 import Matrimony.Facades.CitiesFacade;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -22,7 +21,7 @@ import javax.faces.context.FacesContext;
 public class CitiesController {
 
     private String cityName;
-    private int countryID;
+    private String code;
     private Cities selectedCity;
     private CitiesFacade citiesFacade;
     
@@ -45,8 +44,28 @@ public class CitiesController {
         }
         Cities city;
         try {
-            Countries country = new Countries(countryID);
-            city = new Cities(-1, cityName, country);
+            city = new Cities(-1, cityName, code, 1);
+            int result = citiesFacade.CityCreate(city);
+            if (result > 0) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Success Message", "Create city successful!!!"));
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error Message", "Can not create city. Please try again later"));
+            }
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error Message", ex.getMessage()));
+        } finally {
+            city = null;
+        }
+    }
+    
+    public void cityUpdate()
+    {
+         if (citiesFacade == null) {
+            citiesFacade = new CitiesFacade();
+        }
+        Cities city;
+        try {
+            city = new Cities(selectedCity.getCityID(), selectedCity.getCityName(), selectedCity.getCountryName(), selectedCity.getStatus());
             int result = citiesFacade.CityCreate(city);
             if (result > 0) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Success Message", "Create city successful!!!"));
@@ -68,20 +87,20 @@ public class CitiesController {
         this.cityName = cityName;
     }
 
-    public int getCountryID() {
-        return countryID;
-    }
-
-    public void setCountryID(int countryID) {
-        this.countryID = countryID;
-    }
-
     public Cities getSelectedCity() {
         return selectedCity;
     }
 
     public void setSelectedCity(Cities selectedCity) {
         this.selectedCity = selectedCity;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
     
     
