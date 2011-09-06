@@ -9,7 +9,6 @@ import Matrimony.Entities.UserPersonal;
 import Matrimony.Entities.UserProfile;
 import Matrimony.Entities.Users;
 import Matrimony.Facades.UsersFacade;
-import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;

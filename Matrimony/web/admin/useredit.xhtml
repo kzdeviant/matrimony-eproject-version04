@@ -108,7 +108,7 @@
                                             <h:outputLabel  value="Date Of Birth:" />
                                             <h:inputText value="#{usersController.selectedUser.userProfile.dateOfBirth}" id="txtDateOfBirth" size="50" />
                                         </div>
-                                      <div class="field">
+                                        <div class="field">
                                             <h:outputLabel  value="Height (cm):" />
                                             <h:inputText value="#{usersController.selectedUser.userProfile.height}" id="txtHeight" size="25" />
                                         </div>
@@ -124,28 +124,28 @@
                                             <h:outputLabel  value="Marital Status" />
                                             <h:selectOneMenu id="ddlMaritalStatus" style="width:150px;" value="#{usersController.selectedUser.userProfile.maritalStatus}" >
                                                 <f:selectItem itemValue="" itemLabel="--Select--" />
-                                                <f:selectItem itemValue="0" itemLabel="Never Married" />
-                                                <f:selectItem itemValue="1" itemLabel="Divorced" />
-                                                <f:selectItem itemValue="1" itemLabel="Widowed" />
+                                                <f:selectItem itemValue="1" itemLabel="Never Married" />
+                                                <f:selectItem itemValue="2" itemLabel="Divorced" />
+                                                <f:selectItem itemValue="3" itemLabel="Widowed" />
                                             </h:selectOneMenu>
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Mother Tongue" />
                                             <h:selectOneMenu id="ddlMotherTongue" style="width:150px;" value="#{usersController.selectedUser.userProfile.motherTongue}" >
-                                                <f:selectItem itemValue="" itemLabel="--Select--" />
+                                                <f:selectItems value="#{motherTongueController.listMotherTongue}" />
                                             </h:selectOneMenu>
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Work:" />
                                             <h:inputText value="#{usersController.selectedUser.userProfile.work}" id="txtWork" size="50" />
                                         </div>
-                                           <div class="field">
+                                        <div class="field">
                                             <h:outputLabel  value="Religion" />
                                             <h:selectOneMenu id="ddlReligion" style="width:150px;" value="#{usersController.selectedUser.userProfile.religion}" >
-                                                <f:selectItem itemValue="" itemLabel="--Select--" />
+                                                <f:selectItems value="#{religionController.listReligion}" />
                                             </h:selectOneMenu>
                                         </div>                                     
-                                           <div class="field">
+                                        <div class="field">
                                             <h:outputLabel  value="Caste" />
                                             <h:selectOneMenu id="ddlCaste" style="width:150px;" value="#{usersController.selectedUser.userProfile.caste}" >
                                                 <f:selectItem itemValue="" itemLabel="--Select--" />
@@ -154,17 +154,16 @@
                                         <div class="field">
                                             <h:outputLabel  value="Country Living" />
                                             <h:selectOneMenu id="ddlCountryLiving" style="width:150px;" value="#{usersController.selectedUser.userProfile.countryLiving}" >
-                                                <f:selectItem itemValue="" itemLabel="--Select--" />
+                                                <f:selectItems value="#{countriesController.listCountries}" />
                                             </h:selectOneMenu>
                                         </div>  
-                                           <div class="field">
+                                        <div class="field">
                                             <h:outputLabel  value="City" />
                                             <h:selectOneMenu id="ddlCity" style="width:150px;" value="#{usersController.selectedUser.userProfile.city}" >
-                                                <f:selectItem itemValue="" itemLabel="--Select--" />
+                                                <f:selectItems value="#{citiesController.allCitiesByCountry}"  var="city" itemLabel="#{city.cityName}" itemValue="#{city.cityID}"/>
                                             </h:selectOneMenu>
                                         </div>  
-                                        
-                                                                                <br />
+                                        <br />
                                         <div class="buttonrow">
                                             <h:commandButton style="width: 90px;" action="#{usersController.createUserAdmin}" value="Update" styleClass="btn btn-black" />
                                         </div>

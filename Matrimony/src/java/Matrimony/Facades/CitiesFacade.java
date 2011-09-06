@@ -35,6 +35,15 @@ public class CitiesFacade {
         list = q.getResultList();
         return list;
     }
+    
+        //Get list City non conditions
+    public List<Cities> getAllCitiesByCountry(String countryName) {
+        List<Cities> list;
+        Query q = em.createNamedQuery("Cities.findByCountryName");
+        q.setParameter("countryName", countryName);
+        list = q.getResultList();
+        return list;
+    }
 
     //Create City
     public int CityCreate(Cities pCities) throws Exception {

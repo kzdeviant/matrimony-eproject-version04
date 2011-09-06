@@ -29,7 +29,7 @@ public class MotherTongueController {
     public MotherTongueController() {
     }
     
-    public List<String> getListReligion() {
+    public List<String> getListMotherTongue() {
         List<String> list = new ArrayList<String>();
         try {
             FacesContext faces = FacesContext.getCurrentInstance();

@@ -6,11 +6,13 @@ package Matrimony.Controller;
 
 import Matrimony.Entities.Cities;
 import Matrimony.Facades.CitiesFacade;
+import java.util.Enumeration;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -23,21 +25,53 @@ public class CitiesController {
     private String cityName;
     private String code;
     private Cities selectedCity;
+    private String countryName;
     private CitiesFacade citiesFacade;
-    
+
     /** Creates a new instance of CitiesController */
     public CitiesController() {
         citiesFacade = new CitiesFacade();
     }
 
-   public List<Cities> getAllCountries() {
+    public List<Cities> getAllCountries() {
         if (citiesFacade == null) {
             citiesFacade = new CitiesFacade();
         }
         List<Cities> list = citiesFacade.getAllCities();
         return list;
     }
-        
+
+    public List<Cities> getAllCitiesByCountry() {
+        if (citiesFacade == null) {
+            citiesFacade = new CitiesFacade();
+        }
+        List<Cities> list = null;
+
+        UsersController usersController = (UsersController) getSession("usersController");
+
+        if (usersController.getSelectedUser().getUserProfile().getCountryLiving() != null) {
+            list = citiesFacade.getAllCitiesByCountry(selectedCity.getCountryName());
+        } else {
+            list = citiesFacade.getAllCities();
+        }
+        return list;
+    }
+
+    public Object getSession(String sName) {
+        Object obj = null;
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+        Enumeration e = session.getAttributeNames();
+        while (e.hasMoreElements()) {
+            String attr = (String) e.nextElement();
+            if (attr.equals(sName)) {
+                obj = session.getValue(attr);
+                return obj;
+            }
+        }
+        return null;
+    }
+
     public void cityCreate() {
         if (citiesFacade == null) {
             citiesFacade = new CitiesFacade();
@@ -57,10 +91,9 @@ public class CitiesController {
             city = null;
         }
     }
-    
-    public void cityUpdate()
-    {
-         if (citiesFacade == null) {
+
+    public void cityUpdate() {
+        if (citiesFacade == null) {
             citiesFacade = new CitiesFacade();
         }
         Cities city;
@@ -78,7 +111,7 @@ public class CitiesController {
             city = null;
         }
     }
-    
+
     public String getCityName() {
         return cityName;
     }
@@ -102,6 +135,12 @@ public class CitiesController {
     public void setCode(String code) {
         this.code = code;
     }
-    
-    
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
 }
