@@ -68,7 +68,7 @@
                                         </f:facet>    
                                         <p:commandLink title="Edit User" action="useredit?faces-redirect=true">
                                             <h:graphicImage url="images/icon_edit.png" alt="Edit" />
-                                            <f:setPropertyActionListener value="#{user}" target="#{usersController.selectedUser}" />
+                                            <f:setPropertyActionListener value="#{user}" target="#{sessionScope.selectedUser}" />
                                         </p:commandLink>
                                     </h:column>
                                 </h:dataTable>
