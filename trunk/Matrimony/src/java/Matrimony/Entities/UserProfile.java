@@ -72,11 +72,12 @@ public class UserProfile implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "MaritalStatus", nullable = false, length = 50)
     private String maritalStatus;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "Height", precision = 53)
-    private Double height;
-    @Column(name = "Weight", precision = 53)
-    private Double weight;
+    @Size(max = 50)
+    @Column(name = "Height", length = 50)
+    private String height;
+    @Size(max = 50)
+    @Column(name = "Weight", length = 50)
+    private String weight;
     @Size(max = 250)
     @Column(name = "MotherTongue", length = 250)
     private String motherTongue;
@@ -170,19 +171,19 @@ public class UserProfile implements Serializable {
         this.maritalStatus = maritalStatus;
     }
 
-    public Double getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public Double getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 

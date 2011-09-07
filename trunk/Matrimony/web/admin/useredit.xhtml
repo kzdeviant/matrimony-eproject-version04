@@ -158,25 +158,19 @@
                                             <h:selectOneMenu id="ddlCountryLiving" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.countryLiving}" >
                                                 <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItems value="#{countriesController.listCountries}" />
-                                                <f:ajax execute="@this" listener="#{bean.change}" render="ddlCity" />
                                             </h:selectOneMenu>
                                         </div>  
                                         <div class="field">
                                             <h:outputLabel  value="City" />
-                                            <h:selectOneMenu id="ddlCity" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.city}" >
-                                                <f:selectItem itemValue="" itemLabel="--Select--" />
-                                                <f:selectItems value="#{citiesController.allCitiesByCountry}"  var="city" itemLabel="#{city.cityName}" itemValue="#{city.cityID}"/>
-                                            </h:selectOneMenu>
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.city}" id="txtWork" size="50" />
                                         </div>  
                                         <br />
                                         <div class="buttonrow">
                                             <h:commandButton style="width: 140px;" action="#{usersController.createUserAdmin}" value="Save changes" styleClass="btn btn-black" />
                                         </div>
-
                                     </h:form>
                                 </div> 
                             </div>        
-
                         </div> <!-- .accordion_container -->
                     </div> <!-- .x12 -->
                 </div>

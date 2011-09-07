@@ -27,14 +27,6 @@ CREATE TABLE Users (
 --1. Enable
 --2. Disabled
 go
-/******************************** Cites ****************************************/
-CREATE TABLE Cities(
-	CityID				int primary key identity, 
-	CityName			nvarchar(250) NOT NULL,
-	CountryName			varchar(50),
-	Status				int default 1, 
-)
-go
 /******************************** User Profile ****************************************/
 CREATE TABLE UserProfile (
 	UserID			int primary key references Users(userID),
@@ -44,8 +36,8 @@ CREATE TABLE UserProfile (
 	Gender			int,
 	DateOfBirth		datetime,
 	MaritalStatus	nvarchar(50) NOT NULL default 'unknown',
-	Height			float,
-	Weight			float,
+	Height			varchar(50),
+	Weight			varchar(50),
 	MotherTongue	nvarchar(250),
 	ContactNumber	varchar(50),
 	Work			nvarchar(250),
@@ -207,13 +199,19 @@ INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'cuongnh'
 INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'admin','e10adc3949ba59abbe56e057f20f883e','abcxyz@gmail.com',1)
 INSERT INTO Users ([Role], Username, Password, Email, Status) VALUES(1,'admin123','e10adc3949ba59abbe56e057f20f883e','dangngoctuyen@gmail.com',1)
 go
+/********************************Insert to UserProfile******************************************/
+INSERT INTO UserProfile(UserID) VALUES(1)
+INSERT INTO UserProfile(UserID) VALUES(2)
+INSERT INTO UserProfile(UserID) VALUES(3)
+INSERT INTO UserProfile(UserID) VALUES(4)
+go
+/********************************Insert to UserPersonal******************************************/
+INSERT INTO UserPersonal(UserID) VALUES(1)
+INSERT INTO UserPersonal(UserID) VALUES(2)
+INSERT INTO UserPersonal(UserID) VALUES(3)
+INSERT INTO UserPersonal(UserID) VALUES(4)
+go
 /********************************Insert to thread******************************************/
 INSERT INTO NewThread(UserID,Title,MessageThread,[Status]) VALUES(1,'What your name ?','What your name ?',1)
 INSERT INTO Reply(UserID,NewThreadID,Title,MessageReply) VALUES(2,1,'Title','What your name ?')
 INSERT INTO Reply(UserID,NewThreadID,Title,MessageReply) VALUES(3,1,'Title','What your name ?')
-go
-/********************************Insert to Cities******************************************/
-INSERT INTO Cities (CityName, CountryName) VALUES('Ha Noi','Viet Nam')
-INSERT INTO Cities (CityName, CountryName) VALUES('Hai Phong','Viet Nam')
-INSERT INTO Cities (CityName, CountryName) VALUES('Hue','Viet Nam')
-INSERT INTO Cities (CityName, CountryName) VALUES('Ho Chi Minh City','Viet Nam')

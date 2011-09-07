@@ -29,7 +29,6 @@ public class UsersController {
     private int role;
     private String email;
     private UsersFacade usersFacade;
-    private Users selectedUser;
     private int status;
 
     /** Creates a new instance of UsersController */
@@ -114,14 +113,6 @@ public class UsersController {
 
     public String getUserName() {
         return userName;
-    }
-
-    public Users getSelectedUser() {
-        return selectedUser;
-    }
-
-    public void setSelectedUser(Users selectedUser) {
-        this.selectedUser = selectedUser;
     }
 
     public int getStatus() {
