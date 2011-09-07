@@ -40,7 +40,7 @@ public class MotherTongueController {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
             Element docEle = doc.getDocumentElement();
-            NodeList nList = docEle.getElementsByTagName("mothertongue");
+            NodeList nList = docEle.getElementsByTagName("name");
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Element eElement = (Element) nList.item(temp);
                 list.add(eElement.getTextContent());

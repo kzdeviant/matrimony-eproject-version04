@@ -30,7 +30,8 @@
                             
                             <div class="field">
                                 <h:outputLabel  value="Country Name:" />
-                                <h:selectOneMenu id="ddlCountryName" value="#{citiesController.code}" >
+                                <h:selectOneMenu id="ddlCountryName"  styleClass="validate[required]" value="#{citiesController.code}" >
+                                    <f:selectItem itemValue="" itemLabel="--Select--" />
                                     <f:selectItems value="#{countriesController.listCountries}"/>
                                  </h:selectOneMenu>
                             </div>

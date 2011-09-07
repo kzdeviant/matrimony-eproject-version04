@@ -41,19 +41,38 @@ public class CitiesController {
         return list;
     }
 
+    public void change() {
+        UsersController usersController = (UsersController) getSession("usersController");
+        if (usersController.getSelectedUser().getUserProfile() != null) {
+            if (usersController.getSelectedUser().getUserProfile().getCountryLiving() != null) {
+                countryName = usersController.getSelectedUser().getUserProfile().getCountryLiving();
+            }
+        } else {
+            countryName = null;
+        }
+    }
+
     public List<Cities> getAllCitiesByCountry() {
         if (citiesFacade == null) {
             citiesFacade = new CitiesFacade();
         }
+
         List<Cities> list = null;
 
         UsersController usersController = (UsersController) getSession("usersController");
 
-        if (usersController.getSelectedUser().getUserProfile().getCountryLiving() != null) {
-            list = citiesFacade.getAllCitiesByCountry(selectedCity.getCountryName());
+        if (usersController.getSelectedUser().getUserProfile() != null) {
+            if (usersController.getSelectedUser().getUserProfile().getCountryLiving() != null) {
+                if (countryName != null) {
+                    list = citiesFacade.getAllCitiesByCountry(countryName);
+                } else {
+                    list = citiesFacade.getAllCitiesByCountry(usersController.getSelectedUser().getUserProfile().getCountryLiving());
+                }
+            }
         } else {
             list = citiesFacade.getAllCities();
         }
+
         return list;
     }
 

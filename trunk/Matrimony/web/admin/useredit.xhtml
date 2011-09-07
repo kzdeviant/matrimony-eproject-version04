@@ -34,15 +34,15 @@
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="User Name:" />
-                                            <h:outputLabel value="#{usersController.selectedUser.username}"/>
+                                            <h:outputLabel value="#{sessionScope.selectedUser.username}"/>
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Email:" />
-                                            <h:inputText value="#{usersController.selectedUser.email}" id="txtEmail" size="50" styleClass="validate[required,custom[email]] text-input" />
+                                            <h:inputText value="#{sessionScope.selectedUser.email}" id="txtEmail" size="50" styleClass="validate[required,custom[email]] text-input" />
                                         </div>    
                                         <div class="field">
                                             <h:outputLabel  value="Role:" />
-                                            <h:selectOneMenu styleClass="validate[required]" id="ddlRole" style="width:150px;" value="#{usersController.selectedUser.role}" >
+                                            <h:selectOneMenu styleClass="validate[required]" id="ddlRole" style="width:150px;" value="#{sessionScope.selectedUser.role}" >
                                                 <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItem itemValue="1" itemLabel="Administrator" />
                                                 <f:selectItem itemValue="2" itemLabel="Fee Account" />
@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Status:" />
-                                            <h:selectOneMenu styleClass="validate[required]" id="ddlStatus" style="width:150px;" value="#{usersController.selectedUser.status}" >
+                                            <h:selectOneMenu styleClass="validate[required]" id="ddlStatus" style="width:150px;" value="#{sessionScope.selectedUser.status}" >
                                                 <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItem itemValue="0" itemLabel="Disabled" />
                                                 <f:selectItem itemValue="1" itemLabel="Enable" />
@@ -61,11 +61,11 @@
                                         <div class="field">
                                             <h:outputLabel  value="Last Visited:" />
                                             <c:choose>
-                                                <c:when test="#{usersController.selectedUser.lastLogin eq null}">
+                                                <c:when test="#{sessionScope.selectedUser.lastLogin eq null}">
                                                     <h:outputText value="Account is not used!" style="color: red; font-weight: normal; width: 200px;"/>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <h:outputText value="#{usersController.selectedUser.lastLogin}"> 
+                                                    <h:outputText value="#{sessionScope.selectedUser.lastLogin}"> 
                                                         <f:convertDateTime pattern="MM/dd/yyyy" type="date"/>
                                                     </h:outputText>
                                                 </c:otherwise>
@@ -73,7 +73,7 @@
                                         </div>  
                                         <br />
                                         <div class="buttonrow">
-                                            <h:commandButton style="width: 90px;" action="#{usersController.createUserAdmin}" value="Update" styleClass="btn btn-black" />
+                                            <h:commandButton style="width: 140px;" action="#{usersController.createUserAdmin}" value="Save changes" styleClass="btn btn-black" />
                                         </div>
                                     </h:form>
 
@@ -86,19 +86,19 @@
 
                                         <div class="field">
                                             <h:outputLabel  value="First name:" />
-                                            <h:inputText value="#{usersController.selectedUser.userProfile.firstname}" id="txtFirstName" size="50" />
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.firstname}" id="txtFirstName" size="50" />
                                         </div> 
                                         <div class="field">
                                             <h:outputLabel  value="Middle name:" />
-                                            <h:inputText value="#{usersController.selectedUser.userProfile.middleName}" id="txtMiddleName" size="50" />
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.middleName}" id="txtMiddleName" size="50" />
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Last name:" />
-                                            <h:inputText value="#{usersController.selectedUser.userProfile.lastName}" id="txtLastName" size="50" />
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.lastName}" id="txtLastName" size="50" />
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Gender" />
-                                            <h:selectOneMenu id="ddlGender" style="width:150px;" value="#{usersController.selectedUser.userProfile.gender}" >
+                                            <h:selectOneMenu id="ddlGender" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.gender}" >
                                                 <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItem itemValue="0" itemLabel="Male" />
                                                 <f:selectItem itemValue="1" itemLabel="Female" />
@@ -106,23 +106,27 @@
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Date Of Birth:" />
-                                            <h:inputText value="#{usersController.selectedUser.userProfile.dateOfBirth}" id="txtDateOfBirth" size="50" />
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.dateOfBirth}" id="txtDateOfBirth" size="50" />
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Height (cm):" />
-                                            <h:inputText value="#{usersController.selectedUser.userProfile.height}" id="txtHeight" size="25" />
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.height}" id="txtHeight" size="25" />
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Weight (kg):" />
-                                            <h:inputText value="#{usersController.selectedUser.userProfile.weight}" id="txtWeight" size="25" />
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.weight}" id="txtWeight" size="25" />
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Contact Number:" />
-                                            <h:inputText value="#{usersController.selectedUser.userProfile.contactNumber}" id="txtContactNumber" size="50" />
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.contactNumber}" id="txtContactNumber" size="50" />
+                                        </div>
+                                        <div class="field">
+                                            <h:outputLabel  value="Work:" />
+                                            <h:inputText value="#{sessionScope.selectedUser.userProfile.work}" id="txtWork" size="50" />
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Marital Status" />
-                                            <h:selectOneMenu id="ddlMaritalStatus" style="width:150px;" value="#{usersController.selectedUser.userProfile.maritalStatus}" >
+                                            <h:selectOneMenu id="ddlMaritalStatus" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.maritalStatus}" >
                                                 <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItem itemValue="1" itemLabel="Never Married" />
                                                 <f:selectItem itemValue="2" itemLabel="Divorced" />
@@ -131,41 +135,42 @@
                                         </div>
                                         <div class="field">
                                             <h:outputLabel  value="Mother Tongue" />
-                                            <h:selectOneMenu id="ddlMotherTongue" style="width:150px;" value="#{usersController.selectedUser.userProfile.motherTongue}" >
+                                            <h:selectOneMenu id="ddlMotherTongue" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.motherTongue}" >
+                                                <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItems value="#{motherTongueController.listMotherTongue}" />
                                             </h:selectOneMenu>
                                         </div>
                                         <div class="field">
-                                            <h:outputLabel  value="Work:" />
-                                            <h:inputText value="#{usersController.selectedUser.userProfile.work}" id="txtWork" size="50" />
-                                        </div>
-                                        <div class="field">
                                             <h:outputLabel  value="Religion" />
-                                            <h:selectOneMenu id="ddlReligion" style="width:150px;" value="#{usersController.selectedUser.userProfile.religion}" >
+                                            <h:selectOneMenu id="ddlReligion" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.religion}" >
+                                                <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItems value="#{religionController.listReligion}" />
                                             </h:selectOneMenu>
                                         </div>                                     
                                         <div class="field">
                                             <h:outputLabel  value="Caste" />
-                                            <h:selectOneMenu id="ddlCaste" style="width:150px;" value="#{usersController.selectedUser.userProfile.caste}" >
+                                            <h:selectOneMenu id="ddlCaste" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.caste}" >
                                                 <f:selectItem itemValue="" itemLabel="--Select--" />
                                             </h:selectOneMenu>
                                         </div>                                     
                                         <div class="field">
                                             <h:outputLabel  value="Country Living" />
-                                            <h:selectOneMenu id="ddlCountryLiving" style="width:150px;" value="#{usersController.selectedUser.userProfile.countryLiving}" >
+                                            <h:selectOneMenu id="ddlCountryLiving" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.countryLiving}" >
+                                                <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItems value="#{countriesController.listCountries}" />
+                                                <f:ajax execute="@this" listener="#{bean.change}" render="ddlCity" />
                                             </h:selectOneMenu>
                                         </div>  
                                         <div class="field">
                                             <h:outputLabel  value="City" />
-                                            <h:selectOneMenu id="ddlCity" style="width:150px;" value="#{usersController.selectedUser.userProfile.city}" >
+                                            <h:selectOneMenu id="ddlCity" style="width:150px;" value="#{sessionScope.selectedUser.userProfile.city}" >
+                                                <f:selectItem itemValue="" itemLabel="--Select--" />
                                                 <f:selectItems value="#{citiesController.allCitiesByCountry}"  var="city" itemLabel="#{city.cityName}" itemValue="#{city.cityID}"/>
                                             </h:selectOneMenu>
                                         </div>  
                                         <br />
                                         <div class="buttonrow">
-                                            <h:commandButton style="width: 90px;" action="#{usersController.createUserAdmin}" value="Update" styleClass="btn btn-black" />
+                                            <h:commandButton style="width: 140px;" action="#{usersController.createUserAdmin}" value="Save changes" styleClass="btn btn-black" />
                                         </div>
 
                                     </h:form>
